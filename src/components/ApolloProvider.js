@@ -18,7 +18,9 @@ const authLink = setContext(() => {
   };
 });
 
-const link = from([new HttpLink({ uri: "http://localhost:5000/graphql" })]);
+const link = from([
+  new HttpLink({ uri: "https://uncrowned-king-backend.herokuapp.com/" }),
+]);
 
 const client = new ApolloClient({
   link: authLink.concat(link),
