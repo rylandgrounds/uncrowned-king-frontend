@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { gql, useQuery } from "@apollo/client";
+import { useQuery } from "@apollo/client";
 import { Grid, Transition } from "semantic-ui-react";
 
 import { AuthContext } from "../contexts/auth";
@@ -10,7 +10,7 @@ import { FETCH_WORKOUTS_QUERY } from "../util/graphql";
 function Home() {
   const { user } = useContext(AuthContext);
   const { loading, error, data } = useQuery(FETCH_WORKOUTS_QUERY);
-  if (loading === true) {
+  if (loading === true || error) {
     return <h1> Loading...</h1>;
   } else if (loading === false) {
     return (
