@@ -12,7 +12,7 @@ function Home() {
   const { loading, error, data } = useQuery(FETCH_WORKOUTS_QUERY);
   if (loading === true || error) {
     return <h1> Loading...</h1>;
-  } else if (loading === false) {
+  } else if (loading === false && user) {
     return (
       <Grid columns={3}>
         <Grid.Row className="page-title">
@@ -38,6 +38,12 @@ function Home() {
           )}
         </Grid.Row>
       </Grid>
+    );
+  } else {
+    return (
+      <div>
+        <h1> Please Login!</h1>
+      </div>
     );
   }
 }
