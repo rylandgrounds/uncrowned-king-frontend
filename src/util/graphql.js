@@ -7,6 +7,8 @@ export const FETCH_WORKOUTS_QUERY = gql`
       body
       createdAt
       username
+      type
+      points
     }
   }
 `;
